@@ -2,7 +2,6 @@
 enabled = <%= @enabled %>
 port = <%= @port %>
 filter = <%= @filter %>
-logpath = <%= @logpath %>
 <% if @protocol != false -%>protocol = <%= @protocol %>
 <% end -%>
 <% if @maxretry != false -%>maxretry = <%= @maxretry %>
@@ -16,10 +15,13 @@ logpath = <%= @logpath %>
 <% if @bantime != false -%>bantime = <%= @bantime %>
 <% end -%>
 <% if @ignoreip != false -%>ignoreip = <%= @ignoreip %>
+<% end -%>
 <% if @backend == 'systemd' -%>
 backend = <%= @backend %>
 journalmatch = <%= @journalmatch %>
 <% else -%>
+<% if @logpath != false -%> logpath = <%= @logpath %>
+<% end -%>
 backend = <%= backend %>
 <% end -%>
 
