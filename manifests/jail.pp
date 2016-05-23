@@ -26,6 +26,9 @@ define fail2ban::jail (
   if $backend == 'systemd' and $journalmatch == '' {
     fail("Systemd backend requires journalmatch field")
   }
+  if $backend != 'systemd' and $logpath == false {
+    fail("Non systemd backends requires logpath field")
+  }
 
   concat::fragment { "jail_${name}":
     target  => '/etc/fail2ban/jail.local',
