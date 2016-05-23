@@ -6,7 +6,8 @@ define fail2ban::filter (
   $failregexes,
   $ensure    = present,
   $ignoreregexes = [],
-  $additional_defs = []
+  $additional_defs = [],
+  $additional_inits = []
 ) {
   include fail2ban::config
 
