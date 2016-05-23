@@ -2,8 +2,8 @@
 define fail2ban::jail (
   $port,
   $filter,
-  $logpath,
   $journalmatch,
+  $logpath      = false,
   $ensure       = present,
   $enabled      = true,
   $protocol     = false,
@@ -14,7 +14,7 @@ define fail2ban::jail (
   $bantime      = false,
   $ignoreip     = false,
   $order        = false,
-  $backend      = 'polling' ,
+  $backend      = 'polling',
 
 ) {
   include fail2ban::config
