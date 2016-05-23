@@ -16,5 +16,10 @@ logpath = <%= @logpath %>
 <% if @bantime != false -%>bantime = <%= @bantime %>
 <% end -%>
 <% if @ignoreip != false -%>ignoreip = <%= @ignoreip %>
+<% if @backend == 'systemd' -%>
+backend = <%= @backend %>
+journalmatch = <%= @journalmatch %>
+<% else -%>
+backend = <%= backend %>
 <% end -%>
 

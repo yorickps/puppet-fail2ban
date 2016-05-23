@@ -3,21 +3,28 @@ define fail2ban::jail (
   $port,
   $filter,
   $logpath,
-  $ensure    = present,
-  $enabled   = true,
-  $protocol  = false,
-  $maxretry  = false,
-  $findtime  = false,
-  $action    = false,
-  $banaction = false,
-  $bantime   = false,
-  $ignoreip  = false,
-  $order     = false,
+  $journalmatch,
+  $ensure       = present,
+  $enabled      = true,
+  $protocol     = false,
+  $maxretry     = false,
+  $findtime     = false,
+  $action       = false,
+  $banaction    = false,
+  $bantime      = false,
+  $ignoreip     = false,
+  $order        = false,
+  $backend      = 'polling' ,
+
 ) {
   include fail2ban::config
 
   if $ensure != present {
     warning('The $ensure parameter is now deprecated! to ensure that a fail2ban jail is absent, simply remove the resource.')
+  }
+
+  if $backend == 'systemd' and $journalmatch == '' {
+    fail("Systemd backend requires journalmatch field")
   }
 
   concat::fragment { "jail_${name}":
