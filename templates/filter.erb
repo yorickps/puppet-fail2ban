@@ -1,6 +1,11 @@
 # Fail2Ban configuration file
 #
 
+[INCLUDES]                                                    <
+<% @additional_incs.each do |line| -%>
+<%= line %>
+<% end -%>
+
 [Definition]
 
 <% @additional_defs.each do |line| -%>
