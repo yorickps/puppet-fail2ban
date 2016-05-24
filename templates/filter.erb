@@ -31,3 +31,10 @@ failregex = <%= @failregexes.join("\n            ") %>
 # Values:  TEXT
 #
 ignoreregex = <%= @ignoreregexes.join("\n              ") %>
+
+[Init]
+
+<% @additional_inits.each do |line| -%>
+<%= line %>
+<% end -%>
+

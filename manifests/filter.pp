@@ -6,9 +6,14 @@ define fail2ban::filter (
   $failregexes,
   $ensure    = present,
   $ignoreregexes = [],
+<<<<<<< HEAD
   $includes = [],
   $includes_after = [],
   $additional_defs = []
+=======
+  $additional_defs = [],
+  $additional_inits = []
+>>>>>>> 25b7ee4... Add init defintions in filter template
 ) {
   include fail2ban::config
 
