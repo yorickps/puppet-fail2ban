@@ -40,6 +40,7 @@ class fail2ban::config {
     group   => 0,
     mode    => '0644',
     content => template($jail_template_name),
+    notify  => Service['fail2ban'],
   }
 
   concat { '/etc/fail2ban/jail.local':
@@ -54,6 +55,7 @@ class fail2ban::config {
     # parameter.
     group => 'root',
     mode  => '0644',
+    notify  => Service['fail2ban'],
   }
   # Define one fragment with a header for the file, otherwise the concat exec
   # errors out.

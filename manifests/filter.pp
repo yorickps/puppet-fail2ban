@@ -18,6 +18,7 @@ define fail2ban::filter (
     owner   => 'root',
     group   => 0,
     mode    => '0644',
+    notify  => Service['fail2ban'],
   }
 
 }
