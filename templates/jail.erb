@@ -22,6 +22,8 @@ journalmatch = <%= @journalmatch %>
 <% else -%>
 <% if @logpath != false -%> logpath = <%= @logpath %>
 <% end -%>
+<% if @backend %>
 backend = <%= backend %>
+<% end -%>
 <% end -%>
 
