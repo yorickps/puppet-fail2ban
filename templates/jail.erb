@@ -20,10 +20,9 @@ filter = <%= @filter %>
 backend = <%= @backend %>
 journalmatch = <%= @journalmatch %>
 <% else -%>
-<% if @logpath != false -%> logpath = <%= @logpath %>
+<% if @logpath != false -%>logpath = <%= @logpath %>
 <% end -%>
-<% if @backend %>
-backend = <%= backend %>
+<% if @backend %>backend = <%= backend %>
 <% end -%>
 <% end -%>
 
