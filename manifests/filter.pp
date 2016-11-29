@@ -7,16 +7,16 @@ define fail2ban::filter (
   $failregexes,
   $ensure    = present,
   $ignoreregexes = [],
-  $includes = [],
-  $includes_after = [],
-  $additional_defs = []
+  $additional_defs = [],
+  $additional_inits = [],
+  $additional_incs = []
 ) {
   include fail2ban::config
 
   validate_array($ignoreregexes)
-  validate_array($includes)
-  validate_array($includes_after)
   validate_array($additional_defs)
+  validate_array($additional_inits)
+  validate_array($additional_incs)
 
   file { "/etc/fail2ban/filter.d/${name}.conf":
     ensure  => $ensure,
