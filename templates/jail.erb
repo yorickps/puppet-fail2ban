@@ -23,6 +23,8 @@ journalmatch = <%= @journalmatch %>
 <% if @logpath != false -%>logpath = <%= @logpath %>
 <% end -%>
 <% if @backend %>backend = <%= backend %>
+<% else -%>
+backend = polling
 <% end -%>
 <% end -%>
 
